@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mimusica.com</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- CSS Personalizado -->
+    <style>
+        body {
+            background: linear-gradient(180deg, #cccccc, #000000); 
+            color: #ffffff; 
+            margin: 0;
+            padding: 0;
+        }
+        .navbar-custom {
+            background-color: #222;
+        }
+        .navbar-custom .navbar-brand, 
+        .navbar-custom .nav-link {
+            color: #ffffff;
+        }
+        .navbar-custom .nav-link:hover {
+            color: #c0c0c0;
+        }
+        .navbar-custom .dropdown-menu {
+            background-color: #333;
+        }
+        .navbar-custom .dropdown-item {
+            color: #ffffff;
+        }
+        .navbar-custom .dropdown-item:hover {
+            background-color: #555;
+        }
+        .form-control {
+            border-radius: 0;
+        }
+        .btn-outline-light {
+            color: #ffffff;
+            border-color: #ffffff;
+        }
+        .btn-outline-light:hover {
+            background-color: #ffffff;
+            color: #222;
+        }
+        .carousel-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #000; 
+            border-radius: 8px; 
+			overflow: hidden; 
+            border: 8px solid #000; /* Borde blanco más marcado para el carrusel */
+        }
+        .carousel-inner img {
+            width: 100%;
+            height: auto;
+        }
+        section {
+            padding: 60px 0;
+            text-align: center;
+        }
+        .home-content-wrapper {
+            background: linear-gradient(135deg, #333, #000); /* Fondo degradado negro */
+            color: #ffffff; /* Texto blanco */
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .home-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .home-content img {
+            max-width: 400px;
+            border-radius: 8px;
+        }
+        .about-content-wrapper {
+            background-color: #f0f0f0; /* Gris claro para el fondo */
+            color: #333; /* Color de texto oscuro para el contraste */
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .about-item {
+            background-color: #ffffff; /* Fondo blanco para cada item */
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra más ligera */
+            margin: 10px;
+            text-align: center;
+            flex: 1;
+            max-width: 300px; /* Tamaño máximo de cada item */
+        }
+        .about-item img {
+            max-width: 100%; /* Asegura que las imágenes se ajusten al contenedor */
+            border-radius: 8px; /* Bordes redondeados en las imágenes */
+            margin-bottom: 10px;
+        }
+        .about-item p {
+            margin: 0;
+            font-size: 16px;
+        }
+        .contact-section {
+            background-color: #000000;
+            padding: 60px 0;
+        }
+        .contact-section h2 {
+            margin-bottom: 30px;
+        }
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 15px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+        .contact-form .form-group {
+            margin-bottom: 20px;
+        }
+        .contact-form .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        .contact-form .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #004085;
+        }
+		.genre-container {
+    margin-top: 30px;
+}
+
+.genre-box {
+    background-color: #d3d3d3; /* Gris claro para el fondo del contenedor */
+    padding: 20px;
+    border-radius: 8px;
+    margin: 10px;
+    text-align: center;
+    flex: 1;
+    max-width: 300px;
+    
+}
+
+.genre-box h3 {
+    margin-top: 0;
+    font-size: 24px;
+}
+
+.genre-box p {
+    font-size: 16px;
+}
+.genre-box h3 {
+    margin-top: 0;
+    font-size: 24px;
+    color: #000000; 
+}
+
+.genre-box p {
+    font-size: 16px;
+    color: #333333; 
+}
+    </style>
+</head>
+<body>
+    <!-- Barra de navegación personalizada -->
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <a class="navbar-brand" href="#">Mimusica.com</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#home">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">Acerca de</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Música
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#genres">HIP HOP</a>
+                        <a class="dropdown-item" href="#artists">ROCK</a>
+                        <a class="dropdown-item" href="#albums">METAL</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contacto</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Buscar">
+                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Buscar</button>
+            </form>
+        </div>
+    </nav>
+
+    <!-- Carousel -->
+    <div class="carousel-container mt-4">
+        <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+                <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="https://www.wallpaperflare.com/static/0/349/225/hip-hop-wiz-khalifa-wiz-khalifa-wallpaper.jpg" class="d-block w-100" alt="Imagen 1">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://images.alphacoders.com/217/217181.jpg" class="d-block w-100" alt="Imagen 2">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://s1.1zoom.me/b5050/20/144704-pruss55_1920x1200.jpg" class="d-block w-100" alt="Imagen 3">
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Sección Inicio con Imagen -->
+    <section id="home">
+        <div class="home-content-wrapper">
+            <div class="home-content">
+                <div>
+                    <h2>Bienvenido a Mimusica.com</h2>
+                    <p>En esta página web encontrarás todo tipo de información sobre los diferentes artistas</p>
+                    <p>y sobre todo géneros como el hip hop, el rock, y el metal. Espero que esta página</p>
+                    <p>les pueda dar toda la información que buscan y siempre&nbsp;</p>
+                    <p>!!!!CON SUS AUDÍFONOS PUESTOS!!!&nbsp;&nbsp;</p>
+                </div>
+                <img src="https://i.scdn.co/image/1b4858fbd24046a81cace5ee18d19c868262b91f" alt="Descripción de la imagen" />
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Acerca de -->
+    <section id="about">
+        <div class="about-content-wrapper">
+            <div class="about-item">
+                <img src="https://static.vecteezy.com/system/resources/thumbnails/011/971/862/small/electric-guitars-in-a-musical-instrument-shop-photo.jpg" alt="Metal">
+                <p>En nuestra pagina encontraras la informacion sobre el genero del metal nuevos albums, artistas entre otras cosas variadas.</p>
+            </div>
+            <div class="about-item">
+                <img src="https://news.djcity.com/jp/wp-content/sites/2/DJ-ESSAI-PIC_600-300x200.jpg" alt="HIP HOP">
+                <p>Ademas del metal tambien encontraras el hip hop y su cultura en la actualidad, tambien como artistas de alta categoria de las epocas pasadas como lo son notorius big, 2pac, 50cent, eminem, entre otros.</p>
+            </div>
+            <div class="about-item">
+                <img src="https://i.scdn.co/image/ab67706c0000da842aaeb58aa30f0cecb28a6ac9" alt="Imagen 3">
+              <p>Por ultimo uno de los generos&nbsp;</p>
+              <p>igual famosos es el rock, en este sitio</p>
+                <p>tendremos noticias sobre las nuevas actualizaciones en este genero y los artistas mas conocidos.&nbsp;&nbsp;</p>
+            </div>
+        </div>
+    </section>
+
+   <!-- Sección de géneros -->
+<section id="genres">
+    <div class="container">
+        <h2>Géneros</h2>
+        <div class="genre-container d-flex flex-wrap justify-content-center">
+            <div class="genre-box">
+                <h3>Hip Hop</h3>
+                <p>El Hip Hop es un género musical que surgió en las comunidades afroamericanas y latinas en el Bronx, Nueva York, durante la década de 1970.</p>
+            </div>
+            <div class="genre-box">
+                <h3>Rock</h3>
+                <p>El Rock es un género musical que se originó en la década de 1950, influenciado por el Rhythm and Blues, el Country y otros géneros.</p>
+            </div>
+            <div class="genre-box">
+                <h3>Metal</h3>
+                <p>El Metal es un género musical caracterizado por su sonido duro y agresivo, con guitarras eléctricas distorsionadas y baterías contundentes.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Sección Contacto -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2>Contacto</h2>
+            <p>Si tienes alguna pregunta, no dudes en contactarnos. Rellena el siguiente formulario y nos pondremos en contacto contigo a la mayor brevedad posible.</p>
+            <div class="contact-form">
+                <form>
+                    <div class="form-group">
+                        <label for="name">Nombre</label>
+                        <input type="text" class="form-control" id="name" placeholder="Tu nombre">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico</label>
+                        <input type="email" class="form-control" id="email" placeholder="Tu correo electrónico">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mensaje</label>
+                        <textarea class="form-control" id="message" rows="4" placeholder="Tu mensaje"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- jQuery, Popper.js, y Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+</body>
+</html>
